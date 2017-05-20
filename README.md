@@ -16,11 +16,15 @@ URL for the dataset used in this project is https://d396qusza40orc.cloudfront.ne
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 1. The Tidy Data
+
 Please use the following code to read the Tidy Data text file I uploaded in the coursera website:
 
     address <- https://s3.amazonaws.com/coursera-uploads/peer-review/038aaaeeb35dd3856c98dd65dc149b31/Course3AssignTidyData.txt
+    
     address <- sub("^https", "http", address)
+    
     data <- read.table(url(address), header = TRUE) 
+    
     View(data)
 
 Above code from: https://thoughtfulbloke.wordpress.com/2015/09/09/getting-and-cleaning-the-assignment/ written by David Hood, retrieved on May 20, 2017.
