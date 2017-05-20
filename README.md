@@ -1,13 +1,14 @@
 # Project Title: Getting and Cleaning Data Course Project
 
 Getting and Cleaning Data Course Project by Jay Sabido
+Date: May 20, 2017
 
 Course project based on the Human Activity Recognition Using Smartphones Dataset, Version 1.0 by Jorge L. Reyes-Ortiz, Davide Anguita,Alessandro Ghio, Luca Oneto.
 
 Dataset reference is:
 Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
 
-URL for the dataset used in this project is Reference for the data set is https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip, retrieved last May 15, 2017.
+URL for the dataset used in this project is https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip, retrieved last May 15, 2017.
 
 
 ## Getting Started
@@ -51,7 +52,7 @@ library("reshape2")
 
 Run the R command:
 
-    source("run_analysis.R)
+    source("run_analysis.R")
 
 ### Output of the script
 
@@ -60,7 +61,7 @@ The tidy data set contains the mean of each of the 86 variables, for each of the
 
 ### And coding style 
 
-The script does the following per the project assignment requirement https://www.coursera.org/learn/data-cleaning/peer/FIZtT/getting-and-cleaning-data-course-project:
+The script does the following per the project assignment requirement as stated in this URL: https://www.coursera.org/learn/data-cleaning/peer/FIZtT/getting-and-cleaning-data-course-project:
 
 1. Merges the training and the test sets to create one data set.
 2. Extracts only the measurements on the mean and standard deviation for each measurement.
@@ -70,9 +71,20 @@ The script does the following per the project assignment requirement https://www
 
 The script is divided into 6 parts, one part for each requirement. Requirement 0 is reading all the txt files.
 
-Although the script reads both the Inertial Signals folders for the test and train data sets, these were not used. The 128 variables of the inertial signals data were not defined in the UCI HAR Dataset readme file. And these variables do not seem to match the 561-feature vector in the "features.txt" file.
+Although the script reads both the Inertial Signals folders for the test and train data sets, these were not used. The 128 variables of the inertial signals data are the raw measurements per sliding window. These variables do not seem to directly match the 561-feature vector in the "features.txt" file.
 
 For parts of the script that were challenging to the author, references were given as comments in the actual script.
+
+## Why the data is tidy
+
+From our week 1 lecture, tidy data has the following characteristics:
+1. Each variable you measure should be in one column : Yes, the 86 variables are in one column each.
+2. Each different observation of that variable should be in a different row : each of the 30 persons have 6 rows of data. One row does not have data for more than one person.
+3. There should be one table for each "kind" of variable : The project requirement only called for one table. I chose the wide form of the data. 
+4. If you have multiple tables, they should include a column in the table that allows them to be linked. For example, an ID. : Although the project requires only one table, there is a subject ID column for this.
+
+Based on the following the 4 guidelines, the data is tidy.
+
 
 ## Deployment
 
@@ -88,5 +100,3 @@ No additional notes on deployment
 
 * Billie Thompson, [PurpleBooth](https://github.com/PurpleBooth), "README.md template" from https://gist.github.com/PurpleBooth/109311bb0361f32d87a2#file-readme-template-md, retrieved on May 20, 2017
 * David Hood, "Getting and Cleaning the Assignment", https://thoughtfulbloke.wordpress.com/2015/09/09/getting-and-cleaning-the-assignment/, retrieved on May 20, 2017
-* etc
-
